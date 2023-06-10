@@ -1,0 +1,10 @@
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\bin\Debug\TopUpAD_GUI.exe.config
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\bin\Debug\TopUpAD_GUI.exe
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\bin\Debug\TopUpAD_GUI.pdb
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.csprojAssemblyReference.cache
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.Properties.Resources.resources
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.csproj.GenerateResource.cache
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.csproj.CoreCompileInputs.cache
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.exe
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.pdb
+C:\Users\Sachintha\source\repos\TopUpAD_GUI\obj\Debug\TopUpAD_GUI.Login.resources
