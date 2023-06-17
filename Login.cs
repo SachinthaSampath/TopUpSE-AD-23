@@ -15,6 +15,9 @@ namespace TopUpAD_GUI
 		public Login()
 		{
 			InitializeComponent();
+			//when the initial Login object is created by the runtime, 
+			//it will be set to the login reference in the InterfaceManager class
+			InterfaceManager.SetLogin(this);
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -50,6 +53,7 @@ namespace TopUpAD_GUI
 			if (User.Authenticate(uname, psw))
 			{
 				MessageBox.Show("Login success!!");
+				InterfaceManager.ShowDashboard();
 			}
 			else
 			{
