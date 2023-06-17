@@ -20,6 +20,9 @@ namespace TopUpAD_GUI
 			InterfaceManager.SetLogin(this);
 		}
 
+
+
+		
 		private void Form1_Load(object sender, EventArgs e)
 		{
 
@@ -32,6 +35,7 @@ namespace TopUpAD_GUI
 
 		private void Button1_Click(object sender, EventArgs e)
 		{
+
 			//this is the event handler for login button click
 			//take the username
 			string uname = tb_uname.Text.Trim();			
