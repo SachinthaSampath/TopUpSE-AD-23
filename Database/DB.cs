@@ -17,6 +17,12 @@ namespace TopUpAD_GUI.Database
 			{
 				con = new SqlConnection(ConString);
 			}
+
+			//open the connection
+			/*if (con.State != System.Data.ConnectionState.Open)
+			{
+				con.Open();
+			}*/
 			return con;
 		}
 	}

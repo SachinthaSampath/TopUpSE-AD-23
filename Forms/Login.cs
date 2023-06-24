@@ -14,8 +14,6 @@ namespace TopUpAD_GUI
 			InterfaceManager.SetLogin(this);
 		}
 
-
-
 		
 		private void Form1_Load(object sender, EventArgs e)
 		{

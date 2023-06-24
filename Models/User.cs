@@ -14,12 +14,19 @@ namespace TopUpAD_GUI.Models
 			
 			//get the connection from DB class
 			SqlConnection con =  DB.GetConnection();
+
 			//open the connection
 			con.Open();
+
 			//create the SqlCommnd obejct
 			SqlCommand cmd = new SqlCommand(sql, con);
+
 			//once it is executed, will return a sql data reader with results included
 			SqlDataReader sdr = cmd.ExecuteReader();
+
+			//status variable
+			bool isSuccess = false;
+
 			//check whether it has rows
 			if (sdr.HasRows)
 			{
@@ -35,19 +42,13 @@ namespace TopUpAD_GUI.Models
 					//compare values
 					if (pswHashFromDb.Equals(pswHashFromUser))
 					{
-						return true;
+						isSuccess = true;
 					}
 				}
-				return true;
 			}
-			else
-			{
-				//no rows means no entry with the given username
-				return false;
-			}
-			 
-		}
-
-		 
+			con.Close();
+			sdr.Close();
+			return isSuccess;
+		}		 
 	}
 }
