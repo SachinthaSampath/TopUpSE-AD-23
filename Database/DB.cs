@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopUpAD_GUI
+namespace TopUpAD_GUI.Database
 {
 	class DB
 	{

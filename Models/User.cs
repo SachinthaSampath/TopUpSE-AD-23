@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using TopUpAD_GUI.Database;
+using TopUpAD_GUI.Helpers;
 
-namespace TopUpAD_GUI
+namespace TopUpAD_GUI.Models
 {
 	class User
 	{
@@ -33,7 +31,7 @@ namespace TopUpAD_GUI
 					string pswHashFromDb = sdr.GetString(0);
 
 					//generate hash from the given password to compare with the password hash from the database
-					string pswHashFromUser = User.GetPasswordHash(password);
+					string pswHashFromUser = Security.GetPasswordHash(password);
 					//compare values
 					if (pswHashFromDb.Equals(pswHashFromUser))
 					{
@@ -50,20 +48,6 @@ namespace TopUpAD_GUI
 			 
 		}
 
-		 public static string GetPasswordHash(string input)
-		{
-			using (SHA1Managed sha1 = new SHA1Managed())
-			{
-				byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-				byte[] hashBytes = sha1.ComputeHash(inputBytes);
-
-				StringBuilder sb = new StringBuilder();
-				foreach (byte b in hashBytes)
-				{
-					sb.Append(b.ToString("x2"));
-				}
-				return sb.ToString();
-			}
-		}
+		 
 	}
 }
