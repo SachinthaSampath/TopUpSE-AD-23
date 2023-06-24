@@ -26,5 +26,10 @@ namespace TopUpAD_GUI
 		{
 			InterfaceManager.ShowLogin();
 		}
+
+		private void Btn_users_Click(object sender, EventArgs e)
+		{
+			InterfaceManager.ShowUserManage();
+		}
 	}
 }

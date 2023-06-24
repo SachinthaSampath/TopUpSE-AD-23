@@ -71,6 +71,7 @@
 			this.tb_psw.Name = "tb_psw";
 			this.tb_psw.Size = new System.Drawing.Size(150, 22);
 			this.tb_psw.TabIndex = 3;
+			this.tb_psw.UseSystemPasswordChar = true;
 			// 
 			// btn_login
 			// 

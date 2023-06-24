@@ -70,5 +70,12 @@ namespace TopUpAD_GUI
 			MessageBox.Show("Mouse double clicked", "!!!",
 				MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+
+		public void clear()
+		{
+			tb_psw.Clear();
+			tb_uname.Clear();
+			tb_uname.Focus();
+		}
 	}
 }

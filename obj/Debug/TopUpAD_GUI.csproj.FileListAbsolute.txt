@@ -19,3 +19,4 @@ C:\Users\Sachintha\Desktop\TopUpSE-AD-23\obj\Debug\TopUpAD_GUI.csproj.GenerateRe
 C:\Users\Sachintha\Desktop\TopUpSE-AD-23\obj\Debug\TopUpAD_GUI.csproj.CoreCompileInputs.cache
 C:\Users\Sachintha\Desktop\TopUpSE-AD-23\obj\Debug\TopUpAD_GUI.exe
 C:\Users\Sachintha\Desktop\TopUpSE-AD-23\obj\Debug\TopUpAD_GUI.pdb
+C:\Users\Sachintha\Desktop\TopUpSE-AD-23\obj\Debug\TopUpAD_GUI.UserManagement.resources
