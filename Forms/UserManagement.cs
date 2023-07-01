@@ -49,6 +49,8 @@ namespace TopUpAD_GUI
 			string psw = tb_psw.Text.Trim();
 			string contact = tb_contact.Text.Trim();
 
+			//** add validateions here
+
 			//generate the sha1 hash for the password
 			string hashed_password = Security.GetPasswordHash(psw);
 
@@ -106,7 +108,7 @@ namespace TopUpAD_GUI
 			{
 				//if Read() is successfull; result has rows
 				//we found the user, user data in the sdr
-				tb_id.Text = sdr.GetString(0);
+				//tb_id.Text = sdr.GetInt32(0).ToString() ;
 				tb_name.Text = sdr.GetString(1);
 				tb_uname.Text = sdr.GetString(2);
 				tb_contact.Text = sdr.GetString(3);
@@ -121,6 +123,111 @@ namespace TopUpAD_GUI
 
 			sdr.Close();
 			con.Close();
+		}
+
+		private void Btn_update_Click(object sender, EventArgs e)
+		{
+			//take data from text fields
+			string id = tb_id.Text.Trim();
+			string name = tb_name.Text.Trim();
+			string uname = tb_uname.Text.Trim();
+			string psw = tb_psw.Text.Trim();
+			string contact = tb_contact.Text.Trim();
+
+			//check whether ID is empty, means user has not search and selected
+			if (id.Equals(""))
+			{
+				MessageBox.Show("Please search a valid item first!");
+				tb_id.Focus();
+				return;
+			}
+			
+			//get the connection
+			SqlConnection con = DB.GetConnection();
+			//open the connection
+			con.Open();
+
+			//start the transaction
+			string sql = "begin transaction";
+			SqlCommand cmd1 = new SqlCommand(sql, con);
+			cmd1.ExecuteNonQuery();
+
+			if (psw.Equals(""))
+			{
+				//use don't want to update the password
+				sql = "UPDATE userlogin SET name ='" + name + "', uname = '" + uname + "',  contact='" + contact + "' WHERE id=" + id + "";
+			}
+			else
+			{
+				//user want to update the password
+				sql = "UPDATE userlogin SET name ='"+name+"', uname = '"+uname+"', password_hash='"+Security.GetPasswordHash(psw)+ "', contact='" + contact + "' WHERE id=" + id + "";
+			}
+
+			//run the sql to update
+			SqlCommand cmd2 = new SqlCommand(sql, con);
+			cmd2.ExecuteNonQuery();
+
+			
+
+			DialogResult x = MessageBox.Show("Do you wnat to update the password?", "Confirm!", MessageBoxButtons.YesNo);
+			if (x == DialogResult.Yes)
+			{
+				//proceed with password update
+				//since update is successfull, commit the transaction
+				sql = "COMMIT TRANSACTION";
+				SqlCommand cmd3 = new SqlCommand(sql, con);
+				cmd3.ExecuteNonQuery();
+
+			}
+			else if (x == DialogResult.No)
+			{
+				//proceed without password update
+				//since update is successfull, commit the transaction
+				sql = "ROLLBACK TRANSACTION";
+				SqlCommand cmd3 = new SqlCommand(sql, con);
+				cmd3.ExecuteNonQuery();
+			}
+
+			con.Close();
+		}
+
+		private void Btn_delete_Click(object sender, EventArgs e)
+		{
+			//get the id from text field
+			string id = tb_id.Text.Trim();
+			//validate id
+			if (id.Equals(""))
+			{
+				tb_id.Focus();
+				return;
+			}
+
+			DialogResult x = MessageBox.Show("Do you wnat to delte the user?", 
+				"Confirm!", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+			if (x == DialogResult.Yes)
+			{
+				//proceed with password update
+				SqlConnection con = DB.GetConnection();
+				con.Open();
+				string sql = "DELETE FROM userlogin WHERE id = '" + id + "'";
+				SqlCommand cmd = new SqlCommand(sql, con);
+				//execute and check the updated number of rows
+				if (cmd.ExecuteNonQuery() == 1)
+				{
+					MessageBox.Show("Successfully deleted!");
+				}
+				else
+				{
+					MessageBox.Show("Error while deleting the user");
+				}
+			}
+			else if (x == DialogResult.No)
+			{
+				//proceed without password update
+				MessageBox.Show("abort!");
+			}
+
+			//try to implement transactions and rollback if the effected row count is more than 1
 		}
 	}
 }

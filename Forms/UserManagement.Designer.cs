@@ -45,6 +45,8 @@
 			this.btn_search = new System.Windows.Forms.Button();
 			this.btn_home = new System.Windows.Forms.Button();
 			this.btn_load = new System.Windows.Forms.Button();
+			this.btn_update = new System.Windows.Forms.Button();
+			this.btn_delete = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -207,11 +209,33 @@
 			this.btn_load.UseVisualStyleBackColor = true;
 			this.btn_load.Click += new System.EventHandler(this.Btn_load_Click);
 			// 
+			// btn_update
+			// 
+			this.btn_update.Location = new System.Drawing.Point(387, 358);
+			this.btn_update.Name = "btn_update";
+			this.btn_update.Size = new System.Drawing.Size(104, 33);
+			this.btn_update.TabIndex = 17;
+			this.btn_update.Text = "Update";
+			this.btn_update.UseVisualStyleBackColor = true;
+			this.btn_update.Click += new System.EventHandler(this.Btn_update_Click);
+			// 
+			// btn_delete
+			// 
+			this.btn_delete.Location = new System.Drawing.Point(387, 397);
+			this.btn_delete.Name = "btn_delete";
+			this.btn_delete.Size = new System.Drawing.Size(104, 33);
+			this.btn_delete.TabIndex = 18;
+			this.btn_delete.Text = "Delete";
+			this.btn_delete.UseVisualStyleBackColor = true;
+			this.btn_delete.Click += new System.EventHandler(this.Btn_delete_Click);
+			// 
 			// UserManagement
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(931, 450);
+			this.Controls.Add(this.btn_delete);
+			this.Controls.Add(this.btn_update);
 			this.Controls.Add(this.btn_load);
 			this.Controls.Add(this.btn_search);
 			this.Controls.Add(this.tb_id);
@@ -256,5 +280,7 @@
 		private System.Windows.Forms.TextBox tb_id;
 		private System.Windows.Forms.Button btn_search;
 		private System.Windows.Forms.Button btn_load;
+		private System.Windows.Forms.Button btn_update;
+		private System.Windows.Forms.Button btn_delete;
 	}
 }
